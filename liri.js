@@ -51,11 +51,20 @@ switch (action) {
 
 //If the 'movie' function is called
 function movie () {
-    axios.get("http://www.omdbapi.com/?i=tt3896198&apikey=747984b8").then(      //Run the request with axios module on a URL with a JSON
-  function(response) {
+    axios.get("http://www.omdbapi.com/?i=tt3896198&apikey=747984b8")
+    .then(function(response) {                //Run the request with axios module on a URL with a JSON
 // Then print out the movie data
     console.log(response.data);
-  }
-)};
+  })
 
+  .catch(function(error) {
+    if (error.response) {
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+      console.log(error.response.data);
 
+    };
+
+  })
+
+};
