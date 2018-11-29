@@ -52,17 +52,14 @@ switch (action) {
 
 //If the 'movie' function is called
 function movie() {
-  axios.get("http://www.omdbapi.com/?i=" + info + "tt3896198&apikey=747984b8")
-    .then(function (response) {                //Run the request with axios module on a URL with a JSON
-      // Then print out the movie data
+  axios.get("http://www.omdbapi.com/?t=" + info + "&y=&plot=short&apikey=trilogy")    //Run the request with axios module on a URL with a JSON
+    .then(function (response) {                                                       // Then print out the movie data                                            
       console.log(response.data);
     })
 
     .catch(function (error) {
-      if (error.response) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
-        console.log(error.response.data);
+      if (error.response) {                                                           // The request was made and the server responded with a status code
+        console.log(error.response.data);                                             // that falls out of the range of 2xx      
       }
     })
 };
@@ -79,7 +76,7 @@ function song() {
 };
 
 function concert() {
-  axios.get("https://rest.bandsintown.com/artists/metallica/events?app_id=0812d757d74cda083af32c9fe2e9da9b")
+  axios.get("https://rest.bandsintown.com/artists/" + info + "/events?app_id=0812d757d74cda083af32c9fe2e9da9b")
     .then(function (response) {
       console.log(response.data);
     })
