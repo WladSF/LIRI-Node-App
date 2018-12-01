@@ -1,8 +1,8 @@
-# LIRI-Node-App
+# LIRI
 
 ### Overview
 
-This is LIRI. LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a _Language_ Interpretation and Recognition Interface. LIRI is a command line node app that takes in parameters and gives you back data.
+This is LIRI. LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a _Language_ Interpretation and Recognition Interface. LIRI is a command line node app that takes in parameters and gives you back information (data).
 
 liri.js can take in one of the following commands:
 
@@ -18,13 +18,15 @@ liri.js can take in one of the following commands:
 
 1. `node liri.js concert-this <artist/band name here>`
 
-   * This will search the Bands in Town Artist Events API (`"https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"`) for an artist and render the following information about each event to the terminal:
+   * This will search the Bands in Town Artist Events API (`"https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"`) for an artist and render the following information about each search (event) to the terminal:
+
+     * Artist
 
      * Name of the venue
 
      * Venue location
 
-     * Date of the Event (use moment to format this as "MM/DD/YYYY")
+     * Date of the Event 
 
 2. `node liri.js spotify-this-song '<song name here>'`
 
@@ -38,13 +40,13 @@ liri.js can take in one of the following commands:
 
      * The album that the song is from
 
-   * If no song is provided then your program will default to "The Sign" by Ace of Base.
+   * If no song is provided then the program will default to "The Sign" by Ace of Base.
 
 3. `node liri.js movie-this '<movie name here>'`
 
    * This will output the following information to your terminal/bash window:
 
-     ```
+     
        * Title of the movie.
        * Year the movie came out.
        * IMDB Rating of the movie.
@@ -53,7 +55,7 @@ liri.js can take in one of the following commands:
        * Language of the movie.
        * Plot of the movie.
        * Actors in the movie.
-     ```
+     
 
    * If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
 

@@ -7,7 +7,7 @@ require("dotenv").config();
 var Spotify = require("node-spotify-api");
 
 // Import the API keys and the axios, request, moment, and fs npm packages
-var request = require("request");
+// var request = require("request");
 var moment = require("moment");
 var keys = require("./keys.js");
 var axios = require("axios");
@@ -20,7 +20,10 @@ var spotify = new Spotify(keys.spotify);
 var action = process.argv[2];
 var info = process.argv.slice(3).join(" ");
 
-// Then create a switch-case statement, it will direct which function to run
+
+// SWITCH CASE statement, it will direct which function to run
+//===================================
+
 function infoSearch(action, info) {
   switch (action) {
 
@@ -47,8 +50,13 @@ function infoSearch(action, info) {
 };
 
 //Spotify API call
+//====================================
 
 function song(music) {
+
+  if (music.length === 0) {
+    music = 'The Sign'
+  }
 
   spotify.search({ type: 'track', query: music, limit: 1 }, function (err, data) {
 
@@ -67,12 +75,18 @@ function song(music) {
 };
 
 //OMDB API call
+//====================================
 
 function movie(title) {
+
+  if (title.length === 0) {
+    title = 'Mr. Nobody'
+  }
 
   axios.get("http://www.omdbapi.com/?t=" + title + "&y=&plot=short&apikey=trilogy")    //Run the request with axios module on a URL with a JSON
     .then(function (response) {                                                        // Then print out the movie data                                            
       // console.log(response.data);
+
       console.log("==================" + "\n");
       console.log("Title: " + response.data.Title);
       console.log("Year Released: " + response.data.Year);
@@ -85,7 +99,7 @@ function movie(title) {
       console.log("\n" + "==================" + "\n");
     })
 
-    .catch(function(error) {
+    .catch(function (error) {
       if (error.response) {                                                           // The request was made and the server responded with a status code
         console.log(error.response.data);                                             // that falls out of the range of 2xx      
       }
@@ -93,20 +107,29 @@ function movie(title) {
 };
 
 //Bands in Town API call
+//=====================================
+
 function concert(artist) {
   axios.get("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp")
     .then(function (response) {
-      console.log(response.data);
-      console.log("==================" + "\n");
-      console.log("Artist: " + response.data[0].lineup[0]);
-      console.log("Venue: " + response.data[0].venue.name);
-      console.log("\n" + "==================" + "\n");
-    })
 
-    .catch(function(error) {
-      console.log(error);
-    })
+      if (response.data.length <= 0) {
+        console.log("No available information for this artist. Try again.")
+      }
+
+      console.log("==================" + "\n");
+      console.log("Artist: " + response.data[0].lineup[0])
+      console.log("Venue: " + response.data[0].venue.name)
+      console.log("City: " + response.data[0].venue.city);
+      console.log("State : " + response.data[0].venue.region);
+      console.log("Date: " + moment(response.data[0].datetime).format('L'));
+      console.log("\n" + "==================" + "\n");
+    }
+    );
 };
+
+//"DO WHAT IT SAYS"
+//======================================
 
 function doIt() {
   fs.readFile("random.txt", "utf8", function (error, data) {
@@ -116,18 +139,19 @@ function doIt() {
     else {
       var dataArr = data.split(",");
       console.log(dataArr);                                     // Information to be searched
-      infoSearch(dataArr[0], dataArr[1]);                       
+      infoSearch(dataArr[0], dataArr[1]);
     }
   })
 };
 
-
 //Bonus
+//=======================================
+
 var log = function (action, info) {
   fs.appendFile("log.txt", action + ", " + info + "\n", function (err) {
     if (err) return console.log(err)
   })
   console.log("Action: " + action + " || Info: " + info + "\n")
-}
+};
 
 infoSearch(action, info)
