@@ -14,7 +14,7 @@ The app can take in one of the following commands:
 ### What Each Command Can Do
 
 1. To search for an artist's concert, type in `node liri.js concert-this '<artist name here>'`
-   Your search will return:
+    and your search will return:
 
    * Artist
    * Name of venue
@@ -25,7 +25,7 @@ The app can take in one of the following commands:
 
 
 2. To search for any specific song, type in `node liri.js spotify-this-song '<song name here>'`
-   Your search will return:
+    and your search will return:
 
    * Artist
    * The song's name
@@ -37,7 +37,7 @@ The app can take in one of the following commands:
    * If no song is provided then the program will default to "The Sign" by Ace of Base.
 
 3. To search for a movie, type in `node liri.js movie-this '<movie name here>'`
-   Your search will return:
+    and your search will return:
 
     * Title of the movie.
     * Year the movie came out.
