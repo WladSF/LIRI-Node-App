@@ -28,24 +28,27 @@ function infoSearch(action, info) {
   switch (action) {
 
     case "movie-this":
-      movie(info)
-      log(action, info)
+      movie(info);
+      log(action, info);
       break;
 
     case "spotify-this-song":
-      song(info)
-      log(action, info)
+      song(info);
+      log(action, info);
       break;
 
     case "concert-this":
-      concert(info)
-      log(action, info)
+      concert(info);
+      log(action, info);
       break;
 
     case "do-what-it-says":
-      doIt(info)
-      log(action, info)
+      doIt(info);
+      log(action, info);
       break;
+
+    default:
+      console.log("Liri doesn't know that");
   }
 };
 
@@ -55,7 +58,7 @@ function infoSearch(action, info) {
 function song(music) {
 
   if (music.length === 0) {
-    music = 'The Sign'
+    music = 'The Sign Ace of Base'
   }
 
   spotify.search({ type: 'track', query: music, limit: 1 }, function (err, data) {
@@ -116,32 +119,33 @@ function concert(artist) {
       if (response.data.length <= 0) {
         console.log("No available information for this artist. Try again.")
       }
-
-      console.log("==================" + "\n");
-      console.log("Artist: " + response.data[0].lineup[0])
-      console.log("Venue: " + response.data[0].venue.name)
-      console.log("City: " + response.data[0].venue.city);
-      console.log("State : " + response.data[0].venue.region);
-      console.log("Date: " + moment(response.data[0].datetime).format('L'));
-      console.log("\n" + "==================" + "\n");
+      for (var i = 0; i < response.data.length; i++) {
+        console.log("==================" + "\n");
+        console.log("Artist: " + response.data[i].lineup)
+        console.log("Venue: " + response.data[i].venue.name)
+        console.log("City: " + response.data[i].venue.city);
+        console.log("State : " + response.data[i].venue.region);
+        console.log("Date: " + moment(response.data[i].datetime).format('L'));
+        console.log("\n" + "==================" + "\n");
+      }
     }
     );
 };
 
 //"DO WHAT IT SAYS"
 //======================================
-
 function doIt() {
   fs.readFile("random.txt", "utf8", function (error, data) {
-    if (error) {
-      return console.log(error);
-    }
-    else {
-      var dataArr = data.split(",");
-      console.log(dataArr);                                     // Information to be searched
+    console.log(data);
+
+    var dataArr = data.split(",");
+
+    if (dataArr.length === 2) {
       infoSearch(dataArr[0], dataArr[1]);
+    } else if (dataArr.length === 1) {
+      infoSearch(dataArr[0]);
     }
-  })
+  });
 };
 
 //Bonus
