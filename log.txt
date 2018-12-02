@@ -31,3 +31,10 @@ do-what-it-says, John Mayer
 spotify-this-song, "I Want it That Way"
 do-what-it-says, John Mayer
 spotify-this-song, "I Want it That Way"
+concert-this, John Mayer
+concert-this, Marshmello
+spotify-this-song, Roxanne
+spotify-this-song, The Wall
+spotify-this-song, Dog Years
+movie-this, Jurassic Park
+movie-this, Titanic
