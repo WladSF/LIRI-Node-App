@@ -47,3 +47,6 @@ spotify-this-song, Happier
 do-what-it-says, Roxanne
 spotify-this-song, "I Want it That Way"
 concert-this, Marshmello
+concert-this, John Mayer
+concert-this, John Mayer
+concert-this, Marshmello
