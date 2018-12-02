@@ -21,7 +21,7 @@ The app can take in one of the following commands:
    * Venue location
    * Date of the event
 
-   DEMO : https://drive.google.com/open?id=10O5sQRuY_vuc67NoRvcDhyijYf94ogCB
+   DEMO : https://drive.google.com/open?id=1Ue78fgzMg5nBj5CQNF49ehgfPh_lMTPk
 
 
 2. To search for any specific song, type in `node liri.js spotify-this-song '<song name here>'`
