@@ -9,7 +9,7 @@ The app can take in one of the following commands:
    * "Concert-this"
    * "Spotify-this-song"
    * "Movie-this"
-   * "D0-what-it-says"
+   * "Do-what-it-says"
 
 ### What Each Command Can Do
 
