@@ -6,10 +6,10 @@ This is LIRI. LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interp
 
 The app can take in one of the following commands:
 
-* "Concert-this"
-* "Spotify-this-song"
-* "Movie-this"
-* "D0-what-it-says"
+   * "Concert-this"
+   * "Spotify-this-song"
+   * "Movie-this"
+   * "D0-what-it-says"
 
 ### What Each Command Can Do
 
@@ -25,7 +25,7 @@ The app can take in one of the following commands:
 
 
 2. To search for any specific song, type in `node liri.js spotify-this-song '<song name here>'`
-   This will show the following information:
+   Your search will return:
 
    * Artist
    * The song's name
@@ -37,7 +37,7 @@ The app can take in one of the following commands:
    * If no song is provided then the program will default to "The Sign" by Ace of Base.
 
 3. To search for a movie, type in `node liri.js movie-this '<movie name here>'`
-   This will return the following information:
+   Your search will return:
 
     * Title of the movie.
     * Year the movie came out.
