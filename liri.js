@@ -125,6 +125,7 @@ function concert(artist) {
         console.log("Venue: " + response.data[i].venue.name)
         console.log("City: " + response.data[i].venue.city);
         console.log("State : " + response.data[i].venue.region);
+        console.log("Country : " + response.data[i].venue.country);
         console.log("Date: " + moment(response.data[i].datetime).format('L'));
         console.log("\n" + "==================" + "\n");
       }
